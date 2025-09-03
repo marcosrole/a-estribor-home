@@ -2,91 +2,145 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Aestribor.com.ar - Sitio en construcción</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aestribor.com.ar - Software de Fiscalizaci&oacute;n SUP</title>
   <style>
     body {
-      background: #e6f2f9; /* azul muy claro inspirado en el logo */
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #0d2d47; /* azul oscuro para texto */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9fb;
+      color: #333;
     }
-    .container {
-      max-width: 900px;
-      background: #ffffff;
-      padding: 2rem 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    header {
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
       text-align: center;
+      padding: 40px 20px;
     }
-    img.logo {
-      max-width: 260px;
-      margin-bottom: 1.5rem;
+    header img {
+      max-width: 200px; /* Logo m��s grande */
+      display: block;
+      margin: 0 auto 20px auto;
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #0077b6; /* azul intermedio del logo */
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
-    p {
-      line-height: 1.6;
-      text-align: justify;
-      margin-bottom: 1rem;
-      color: #0d2d47;
+    header p {
+      margin-top: 10px;
+      font-style: italic;
     }
-    .construction {
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .funcionalidades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .funcionalidad {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .funcionalidad:hover {
+      transform: scale(1.05);
+    }
+    .funcionalidad img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+    footer {
+      background-color: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .auspiciantes {
+      margin-top: 20px;
+    }
+    .auspiciantes img {
+      width: 120px;
+      margin: 10px;
+      border-radius: 10px;
+      background: white;
+      padding: 10px;
+    }
+	.construction {
       font-size: 1.2rem;
       color: #023e8a;
       margin-top: 1.5rem;
       font-weight: bold;
-    }
-    .contacto {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #ddd;
-      font-size: 0.95rem;
-      color: #0d2d47;
-    }
-    .contacto a {
-      color: #0077b6;
-      text-decoration: none;
-    }
-    .contacto a:hover {
-      text-decoration: underline;
-    }
+	  }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Logo Aestribor" class="logo">
-    <h1>🚧 Sitio en construcción 🚧</h1>
-    <p>
-      <strong>Aestribor.com.ar</strong> es un software pensado para la fiscalización y organización de competencias de Stand Up Paddle (SUP), aunque su diseño flexible permite adaptarlo también a otras disciplinas acuáticas con dinámicas similares.
-    </p>
-    <p>
-      El sistema centraliza todo el proceso: inscripciones online, gestión de copas, fechas, modalidades, categorías y heats, reduciendo errores y simplificando el trabajo de los organizadores. Por otra parte, se está desarrollando funcionalidades referidas al perfil de competidores, donde cada uno podrá acceder a sus estadísticas personales (tiempos, posiciones y resultados históricos), generando un valor agregado tanto para atletas como para organizadores.
-    </p>
-    <p>
-      Con Aestribor, organizadores y jueces pueden ahorrar tiempo, reducir errores y brindar una experiencia más profesional y transparente tanto a los competidores como al público.
-    </p>
-    <p>
-      Actualmente estamos en fase de desarrollo y pruebas, pero ya se está utilizando en competencias locales para validar y mejorar sus funciones. La idea es que se convierta en una herramienta de referencia para el SUP en Latinoamérica.
-    </p>
-    <div class="construction">
-      Muy pronto vas a poder conocer más sobre nuestra aplicación.
-    </div>
 
-    <!-- Sección de contacto -->
-    <div class="contacto">
-      <p><strong>Contacto</strong></p>
-      <p>Email: <a href="mailto:marcosrole@gmail.com">marcosrole@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/aestribor.com.ar" target="_blank">@aestribor.com.ar</a></p>
-      
+  <header>
+    <img src="logo.png" alt="Logo Aestribor">
+    <h1>Aestribor.com.ar</h1>
+    <div class="construction">
+      Muy pronto vas a poder conocer m&aacute;s sobre nuestra aplicaci&oacute;n.</div>   
+	  <p>
+      <strong>Aestribor.com.ar</strong> es un software pensado para la fiscalizaci&oacute;n y organizaci&oacute;n de competencias de Stand Up Paddle (SUP), aunque su dise?o flexible permite adaptarlo tambi&eacute;n a otras disciplinas acu&aacute;ticas con din&aacute;micas similares.
+    </p>
+  </header>
+  
+  
+
+  <section>
+    <h2>Funcionalidades principales</h2>
+    <div class="funcionalidades">
+      <div class="funcionalidad">
+        <img src="https://img.icons8.com/ios-filled/100/0077b6/edit-calendar.png" alt="Inscripciones">
+        <h3>Inscripciones Online</h3>
+        <p>Centraliza el registro de corredores de forma &aacute;gil y sin errores.</p>
+      </div>
+      <div class="funcionalidad">
+        <img src="https://img.icons8.com/ios-filled/100/0077b6/trophy.png" alt="Gesti��n Copas">
+        <h3>Gesti&oacute;n de Copas</h3>
+        <p>Organiza fechas, modalidades, categor&iacute;as y heats en un solo lugar.</p>
+      </div>
+      <div class="funcionalidad">
+        <img src="https://img.icons8.com/ios-filled/100/0077b6/statistics.png" alt="Estad��sticas">
+        <h3>Perfil de Competidores</h3>
+        <p>Cada atleta puede acceder a tiempos, posiciones y resultados hist&oacute;ricos.</p>
+      </div>
+      <div class="funcionalidad">
+        <img src="https://img.icons8.com/ios-filled/100/0077b6/stopwatch.png" alt="Control de Tiempos">
+        <h3>Control de Tiempos</h3>
+        <p>Reduce errores y facilita el trabajo de jueces y organizadores.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section>
+    <h2>Acerca de m&iacute;</h2>
+    <p>Hola, soy <b>Marcos Rol&eacute;</b>, Ingeniero en Inform&aacute;tica y apasionado del Stand Up Paddle. 
+    Cre&eacute; este software para aportar profesionalismo y transparencia al deporte que tanto disfruto. 
+    Pertenezco a la escuela <b>Setubal SUP</b> de Santa Fe, Argentina.</p>
+  </section>
+
+  <section class="contact-info">
+            <h2>Contacto</h2>
+            <p><i class="fas fa-envelope"></i> Email: marcosrole@gmail.com</p>
+            <p><i class="fab fa-whatsapp"></i> WhatsApp: +54 9 3483 404260</p>
+        </section>
+
+  <footer>
+    <p>&copy; 2025 Aestribor.com.ar - Todos los derechos reservados</p>
+    <div class="auspiciantes">
+      <h3>Auspiciantes</h3>
+      <!-- Logo de ejemplo -->
+      <img src="logo-setubalsup.png" alt="Logo Auspiciante">
+    </div>
+  </footer>
+
 </body>
 </html>
