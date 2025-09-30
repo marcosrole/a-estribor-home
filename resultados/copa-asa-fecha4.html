@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Copa Nacional ASA - Fecha 4</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9fb;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #0077b6;
+    }
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #0077b6;
+      color: white;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    tr:nth-child(even) { background: #f2faff; }
+    tr:hover { background: #d9f0ff; }
+    .volver {
+      display: inline-block;
+      margin: 20px auto;
+      text-align: center;
+      background: #0077b6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .volver:hover {
+      background: #023e8a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Resultados - Copa Nacional ASA (Fecha 4)</h1>
+    <a href="../index.html" class="volver">Volver al inicio</a>
+  </header>
+
+  <div class="container" id="resultados-container">
+    <!-- Aquí se cargarán las cards dinámicamente -->
+  </div>
+
+ <script>
+    const kids = {"Carrera":"Participativa","Sexo":"Masculino","Resultados":[{"Numero":4,"Apellido":"Garcia","Nombre":"Noa","Categoria":"Kids","Duracion":"01:59","FechaInicio":"2025-09-28T11:41:37.8555123","FechaFin":"2025-09-28T11:43:36.1678191"},{"Numero":3,"Apellido":"Petean","Nombre":"Martino","Categoria":"Kids","Duracion":"02:02","FechaInicio":"2025-09-28T11:41:37.8557805","FechaFin":"2025-09-28T11:43:39.9656596"},{"Numero":2,"Apellido":"Pierotti","Nombre":"Lupe","Categoria":"Kids","Duracion":"02:04","FechaInicio":"2025-09-28T11:41:37.8557827","FechaFin":"2025-09-28T11:43:41.6824074"},{"Numero":6,"Apellido":"Dellepiane Maino","Nombre":"Juan Cruz","Categoria":"Kids","Duracion":"02:13","FechaInicio":"2025-09-28T11:41:37.8557869","FechaFin":"2025-09-28T11:43:50.6811591"},{"Numero":5,"Apellido":"Eiguren","Nombre":"Baltasar","Categoria":"Kids","Duracion":"02:15","FechaInicio":"2025-09-28T11:41:37.8557838","FechaFin":"2025-09-28T11:43:52.6599236"},{"Numero":1,"Apellido":"Milo","Nombre":"Jaras","Categoria":"Kids","Duracion":"02:37","FechaInicio":"2025-09-28T11:41:37.8557860","FechaFin":"2025-09-28T11:44:14.3018054"}]}
+	const participativaMasculino = {"Carrera":"Participativa (1km a 3 km)","Sexo":"Masculino","Resultados":[{"Numero":7,"Apellido":"Juan","Nombre":"Ignacio Jaras","Categoria":"Junior","Duracion":"11:51","FechaInicio":"2025-09-28T12:21:12.0376747","FechaFin":"2025-09-28T12:33:03.1912251"},{"Numero":89,"Apellido":"Guilizasti","Nombre":"Pablo","Categoria":"Master","Duracion":"12:29","FechaInicio":"2025-09-28T12:21:12.0376732","FechaFin":"2025-09-28T12:33:41.6763692"},{"Numero":55,"Apellido":"Bruno","Nombre":"Conrado","Categoria":"Open","Duracion":"12:37","FechaInicio":"2025-09-28T12:21:12.0376301","FechaFin":"2025-09-28T12:33:49.0934263"},{"Numero":74,"Apellido":"Cordero","Nombre":"Nicolás Daniel","Categoria":"Master","Duracion":"12:42","FechaInicio":"2025-09-28T12:21:12.0376684","FechaFin":"2025-09-28T12:33:54.6338377"},{"Numero":114,"Apellido":"Gaitano","Nombre":"Gustavo","Categoria":"Master","Duracion":"13:42","FechaInicio":"2025-09-28T12:21:12.0376714","FechaFin":"2025-09-28T12:34:54.3718838"},{"Numero":120,"Apellido":"Jaime","Nombre":"Hector","Categoria":"Master","Duracion":"14:18","FechaInicio":"2025-09-28T12:21:12.0376758","FechaFin":"2025-09-28T12:35:30.6345841"},{"Numero":93,"Apellido":"Irigoytia","Nombre":"Gustavo Adolfo","Categoria":"Master","Duracion":"17:48","FechaInicio":"2025-09-28T12:21:12.0376699","FechaFin":"2025-09-28T12:39:00.9271118"}]}
+    const participativaFemenino = {"Carrera":"Participativa (1km a 3 km)","Sexo":"Femenino","Resultados":[{"Numero":10,"Apellido":"Petean","Nombre":"Valentina","Categoria":"Kids","Duracion":"12:15","FechaInicio":"2025-09-28T12:01:20.3097555","FechaFin":"2025-09-28T12:13:35.1233080"},{"Numero":9,"Apellido":"Ramos Tamburlini","Nombre":"Ema","Categoria":"Junior","Duracion":"12:52","FechaInicio":"2025-09-28T12:01:20.3097473","FechaFin":"2025-09-28T12:14:12.2303798"},{"Numero":111,"Apellido":"Lazzaro","Nombre":"Viviana A.","Categoria":"Master","Duracion":"12:56","FechaInicio":"2025-09-28T12:01:20.3097494","FechaFin":"2025-09-28T12:14:16.3749414"},{"Numero":29,"Apellido":"Marcucci","Nombre":"Maria Eugenia","Categoria":"Open","Duracion":"13:57","FechaInicio":"2025-09-28T12:01:20.3097573","FechaFin":"2025-09-28T12:15:17.2813408"},{"Numero":86,"Apellido":"Cordera","Nombre":"María Nieves","Categoria":"Master","Duracion":"14:15","FechaInicio":"2025-09-28T12:01:20.3097517","FechaFin":"2025-09-28T12:15:35.1964304"},{"Numero":36,"Apellido":"Zocchi","Nombre":"Carolina","Categoria":"Open","Duracion":"14:38","FechaInicio":"2025-09-28T12:01:20.3097455","FechaFin":"2025-09-28T12:15:58.3997888"},{"Numero":39,"Apellido":"Virginia","Nombre":"Rondon","Categoria":"Open","Duracion":"14:48","FechaInicio":"2025-09-28T12:01:20.3097118","FechaFin":"2025-09-28T12:16:08.2099236"},{"Numero":45,"Apellido":"Gianassi","Nombre":"Jorgelina","Categoria":"Open","Duracion":"15:35","FechaInicio":"2025-09-28T12:01:20.3097647","FechaFin":"2025-09-28T12:16:55.0016104"},{"Numero":18,"Apellido":"Gelai","Nombre":"Valentina","Categoria":"Open","Duracion":"16:06","FechaInicio":"2025-09-28T12:01:20.3097614","FechaFin":"2025-09-28T12:17:26.5660717"},{"Numero":72,"Apellido":"Di","Nombre":"Monte Noelia","Categoria":"Master","Duracion":"16:23","FechaInicio":"2025-09-28T12:01:20.3097596","FechaFin":"2025-09-28T12:17:43.5344844"},{"Numero":107,"Apellido":"Laboritti","Nombre":"Sara","Categoria":"Master","Duracion":"16:38","FechaInicio":"2025-09-28T12:01:20.3097537","FechaFin":"2025-09-28T12:17:58.9045262"},{"Numero":21,"Apellido":"Valerio","Nombre":"Candela","Categoria":"Open","Duracion":"18:06","FechaInicio":"2025-09-28T12:01:20.3097631","FechaFin":"2025-09-28T12:19:26.5205929"}]}
+	
+	const allroundmasculino = {"Carrera":"All Round (3km a 6km)","Sexo":"Masculino","Resultados":[{"Numero":92,"Apellido":"Herrera","Nombre":"Diego","Categoria":"Master","Duracion":"20:33","FechaInicio":"2025-09-28T12:47:13.8039052","FechaFin":"2025-09-28T13:07:46.5176841"},{"Numero":66,"Apellido":"Bisonni","Nombre":"","Categoria":"Master","Duracion":"20:35","FechaInicio":"2025-09-28T12:47:13.8038996","FechaFin":"2025-09-28T13:07:48.9457539"},{"Numero":87,"Apellido":"Eiguren","Nombre":"Javier","Categoria":"Master","Duracion":"21:44","FechaInicio":"2025-09-28T12:47:13.8038971","FechaFin":"2025-09-28T13:08:57.3608297"},{"Numero":40,"Apellido":"Role","Nombre":"Marcos","Categoria":"Open","Duracion":"21:46","FechaInicio":"2025-09-28T12:47:13.8039095","FechaFin":"2025-09-28T13:08:59.8109229"},{"Numero":73,"Apellido":"Fernández","Nombre":"Víctor","Categoria":"Master","Duracion":"22:29","FechaInicio":"2025-09-28T12:47:13.8039073","FechaFin":"2025-09-28T13:09:42.7271862"},{"Numero":88,"Apellido":"Bruge","Nombre":"Bruno Andres","Categoria":"Master","Duracion":"24:36","FechaInicio":"2025-09-28T12:47:13.8038711","FechaFin":"2025-09-28T13:11:49.9615490"},{"Numero":112,"Apellido":"Goncebat","Nombre":"Leonardo Rubén","Categoria":"Master","Duracion":"24:44","FechaInicio":"2025-09-28T12:47:13.8039021","FechaFin":"2025-09-28T13:11:57.8875989"},{"Numero":7,"Apellido":"Juan","Nombre":"Ignacio Jaras","Categoria":"Junior","Duracion":"28:35","FechaInicio":"2025-09-28T12:47:13.8039116","FechaFin":"2025-09-28T13:15:48.3999243"}]}
+	const allroundfemenino = {"Carrera":"All Round (3km a 6km)","Sexo":"Femenino","Resultados":[{"Numero":98,"Apellido":"Gañan","Nombre":"Marcela","Categoria":"Master","Duracion":"22:39","FechaInicio":"2025-09-28T12:47:10.4488485","FechaFin":"2025-09-28T13:09:49.7609553"},{"Numero":90,"Apellido":"Zanou","Nombre":"Soledad","Categoria":"Master","Duracion":"22:51","FechaInicio":"2025-09-28T12:47:10.4488298","FechaFin":"2025-09-28T13:10:01.8701826"},{"Numero":76,"Apellido":"Muzzio","Nombre":"Laura","Categoria":"Master","Duracion":"23:08","FechaInicio":"2025-09-28T12:47:10.4488284","FechaFin":"2025-09-28T13:10:18.3544292"},{"Numero":99,"Apellido":"Prestera","Nombre":"Jorgelina","Categoria":"Master","Duracion":"23:13","FechaInicio":"2025-09-28T12:47:10.4488077","FechaFin":"2025-09-28T13:10:23.8722322"},{"Numero":37,"Apellido":"Ayude","Nombre":"Micaela","Categoria":"Open","Duracion":"23:52","FechaInicio":"2025-09-28T12:47:10.4488456","FechaFin":"2025-09-28T13:11:02.5953159"},{"Numero":103,"Apellido":"Morán Barrio","Nombre":"Jorgelina","Categoria":"Master","Duracion":"24:21","FechaInicio":"2025-09-28T12:47:10.4488269","FechaFin":"2025-09-28T13:11:31.0021088"},{"Numero":47,"Apellido":"Di","Nombre":"Martino","Categoria":"Open","Duracion":"24:57","FechaInicio":"2025-09-28T12:47:10.4488470","FechaFin":"2025-09-28T13:12:07.1152686"},{"Numero":95,"Apellido":"De","Nombre":"Paola","Categoria":"Master","Duracion":"25:27","FechaInicio":"2025-09-28T12:47:10.4488498","FechaFin":"2025-09-28T13:12:37.6638080"},{"Numero":77,"Apellido":"Yasnikowski","Nombre":"Carolina","Categoria":"Master","Duracion":"27:05","FechaInicio":"2025-09-28T12:47:10.4488509","FechaFin":"2025-09-28T13:14:15.7776881"},{"Numero":118,"Apellido":"Formigoni","Nombre":"Mabel Susana","Categoria":"Master","Duracion":"28:17","FechaInicio":"2025-09-28T12:47:10.4488391","FechaFin":"2025-09-28T13:15:27.9887201"},{"Numero":29,"Apellido":"Marcucci","Nombre":"Maria Eugenia","Categoria":"Open","Duracion":"28:25","FechaInicio":"2025-09-28T12:47:10.4488404","FechaFin":"2025-09-28T13:15:35.7689832"}]}
+	
+	const funracemasculino = {"Carrera":"Fun Race (5 km)","Sexo":"Masculino","Resultados":[{"Numero":49,"Apellido":"Fernandez","Nombre":"Maximiliano","Categoria":"Open","Duracion":"27:29","FechaInicio":"2025-09-28T12:46:20.7880598","FechaFin":"2025-09-28T13:13:49.8674005"},{"Numero":35,"Apellido":"Bais","Nombre":"Emanuel","Categoria":"Open","Duracion":"32:37","FechaInicio":"2025-09-28T12:46:20.7880585","FechaFin":"2025-09-28T13:18:57.4453036"},{"Numero":116,"Apellido":"Bustamante","Nombre":"Fabio","Categoria":"Master","Duracion":"33:41","FechaInicio":"2025-09-28T12:46:20.7880567","FechaFin":"2025-09-28T13:20:01.4091526"},{"Numero":109,"Apellido":"Martin","Nombre":"Erico","Categoria":"Master","Duracion":"35:57","FechaInicio":"2025-09-28T12:46:20.7880615","FechaFin":"2025-09-28T13:22:17.2708334"},{"Numero":14,"Apellido":"Wolter","Nombre":"Nicanor","Categoria":"Junior","Duracion":"39:05","FechaInicio":"2025-09-28T12:46:20.7880327","FechaFin":"2025-09-28T13:25:25.7752488"}]}
+	const funracefemenino = {"Carrera":"Fun Race (5 km)","Sexo":"Femenino","Resultados":[{"Numero":105,"Apellido":"Pia","Nombre":"Del Bono","Categoria":"Master","Duracion":"31:24","FechaInicio":"2025-09-28T12:46:17.9842511","FechaFin":"2025-09-28T13:17:41.4900089"},{"Numero":79,"Apellido":"Sainz","Nombre":"Maria Angelica","Categoria":"Master","Duracion":"32:47","FechaInicio":"2025-09-28T12:46:17.9842547","FechaFin":"2025-09-28T13:19:04.0464314"},{"Numero":38,"Apellido":"Flores","Nombre":"Tania","Categoria":"Open","Duracion":"33:14","FechaInicio":"2025-09-28T12:46:17.9842539","FechaFin":"2025-09-28T13:19:31.3645081"},{"Numero":53,"Apellido":"Vilela","Nombre":"Alejandra","Categoria":"Open","Duracion":"35:39","FechaInicio":"2025-09-28T12:46:17.9842521","FechaFin":"2025-09-28T13:21:56.6300785"},{"Numero":81,"Apellido":"Bossi","Nombre":"Brenda","Categoria":"Master","Duracion":"36:41","FechaInicio":"2025-09-28T12:46:17.9842314","FechaFin":"2025-09-28T13:22:58.5805583"},{"Numero":80,"Apellido":"Sclavi","Nombre":"Gabriela","Categoria":"Master","Duracion":"40:44","FechaInicio":"2025-09-28T12:46:17.9842529","FechaFin":"2025-09-28T13:27:01.9543437"}]}
+	
+	const racetecnicomasculino = {"Carrera":"Maratón (10 km a 12 km)","Sexo":"Masculino","Resultados":[{"Numero":19,"Apellido":"Basaldella","Nombre":"Santino","Categoria":"Open","Duracion":"60:35","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:37:23.0316892"},{"Numero":119,"Apellido":"Giusti","Nombre":"Francisco","Categoria":"Open","Duracion":"61:05","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:37:53.5582603"},{"Numero":17,"Apellido":"Arias","Nombre":"Nacho","Categoria":"Open","Duracion":"62:03","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:38:51.7489327"},{"Numero":63,"Apellido":"Giovinazzo","Nombre":"Nahuel","Categoria":"Master","Duracion":"64:28","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:41:16.1317402"},{"Numero":26,"Apellido":"Ramirez","Nombre":"Rodrigo","Categoria":"Open","Duracion":"64:32","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:41:20.5921577"},{"Numero":25,"Apellido":"Di","Nombre":"Leva Augusto","Categoria":"Open","Duracion":"65:08","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:41:56.8936858"},{"Numero":22,"Apellido":"Zalazar","Nombre":"Tobias","Categoria":"Open","Duracion":"65:14","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:42:02.1568924"},{"Numero":60,"Apellido":"Villagra","Nombre":"Cristian","Categoria":"Master","Duracion":"67:01","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:43:49.1949159"},{"Numero":46,"Apellido":"Canoza","Nombre":"Exequiel","Categoria":"Open","Duracion":"67:15","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:44:03.8442314"},{"Numero":121,"Apellido":"Basaldella","Nombre":"Guillermo","Categoria":"Master","Duracion":"67:30","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:44:18.6324657"},{"Numero":13,"Apellido":"QUINTEROS ARIÑO","Nombre":"JOAQUIN","Categoria":"Junior","Duracion":"67:55","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:44:43.5007268"},{"Numero":62,"Apellido":"Caprioli","Nombre":"David","Categoria":"Master","Duracion":"67:59","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:44:47.2799935"},{"Numero":100,"Apellido":"Balzano","Nombre":"Diego","Categoria":"Master","Duracion":"68:54","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:45:42.8989000"},{"Numero":41,"Apellido":"Garcia","Nombre":"Jonatan","Categoria":"Open","Duracion":"69:44","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:46:32.9391901"},{"Numero":68,"Apellido":"Reilly","Nombre":"German","Categoria":"Master","Duracion":"69:52","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:46:40.4361407"},{"Numero":24,"Apellido":"Thomas","Nombre":"Forini","Categoria":"Open","Duracion":"70:01","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:46:49.6252129"},{"Numero":97,"Apellido":"Riboldi","Nombre":"Juan","Categoria":"Master","Duracion":"70:04","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:46:52.3737848"},{"Numero":12,"Apellido":"Rondinara","Nombre":"Tomas","Categoria":"Junior","Duracion":"70:42","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:47:30.8684852"},{"Numero":48,"Apellido":"Figueredo","Nombre":"Alvaro","Categoria":"Open","Duracion":"71:18","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:48:06.5825392"},{"Numero":42,"Apellido":"Jaroslavsky","Nombre":"Federico","Categoria":"Open","Duracion":"71:21","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:48:09.5808065"},{"Numero":82,"Apellido":"Veiga","Nombre":"Esteban","Categoria":"Master","Duracion":"79:43","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:56:31.8449556"},{"Numero":117,"Apellido":"BONGARZONE","Nombre":"CLAUDIO","Categoria":"Master","Duracion":"82:50","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T15:59:38.4013137"},{"Numero":67,"Apellido":"Naveira","Nombre":"Gastón","Categoria":"Master","Duracion":"92:59","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T16:09:47.0795807"},{"Numero":101,"Apellido":"QUINTEROS","Nombre":"CRISTIAN ALBERTO","Categoria":"Master","FechaInicio":"2025-09-28T14:36:48.7619775","FechaFin":"2025-09-28T16:09:57.8036678","FechaBaja":"2025-09-28T15:11:30.3524959"}]}
+	const racetecnicofemenino = {"Carrera":"Maratón (10 km a 12 km)","Sexo":"Femenino","Resultados":[{"Numero":32,"Apellido":"Clembosky","Nombre":"Lucia","Categoria":"Open","Duracion":"68:25","FechaInicio":"2025-09-28T14:38:35.7021581","FechaFin":"2025-09-28T15:47:00.5023784"},{"Numero":23,"Apellido":"Coletta","Nombre":"Spada Alma","Categoria":"Open","Duracion":"70:14","FechaInicio":"2025-09-28T14:38:35.7021717","FechaFin":"2025-09-28T15:48:49.9475234"},{"Numero":65,"Apellido":"Grecco","Nombre":"Sandra","Categoria":"Open","Duracion":"71:53","FechaInicio":"2025-09-28T14:38:35.7021701","FechaFin":"2025-09-28T15:50:28.8342986"},{"Numero":30,"Apellido":"Elisei","Nombre":"Natali","Categoria":"Open","Duracion":"71:55","FechaInicio":"2025-09-28T14:38:35.7021654","FechaFin":"2025-09-28T15:50:30.9211196"},{"Numero":52,"Apellido":"María","Nombre":"José Chappet","Categoria":"Open","Duracion":"72:06","FechaInicio":"2025-09-28T14:38:35.7021813","FechaFin":"2025-09-28T15:50:41.3162766"},{"Numero":71,"Apellido":"Palau","Nombre":"Laura","Categoria":"Master","Duracion":"74:37","FechaInicio":"2025-09-28T14:38:35.7021567","FechaFin":"2025-09-28T15:53:12.6073865"},{"Numero":15,"Apellido":"Pacor","Nombre":"Tiziana","Categoria":"Open","Duracion":"75:54","FechaInicio":"2025-09-28T14:38:35.7021732","FechaFin":"2025-09-28T15:54:29.2809782"},{"Numero":83,"Apellido":"Mars","Nombre":"Laura","Categoria":"Master","Duracion":"76:44","FechaInicio":"2025-09-28T14:38:35.7021685","FechaFin":"2025-09-28T15:55:19.3477287"},{"Numero":70,"Apellido":"Fontichelli","Nombre":"Majo","Categoria":"Master","Duracion":"76:47","FechaInicio":"2025-09-28T14:38:35.7021774","FechaFin":"2025-09-28T15:55:22.7710373"},{"Numero":20,"Apellido":"Colli","Nombre":"Pilar","Categoria":"Open","Duracion":"77:52","FechaInicio":"2025-09-28T14:38:35.7021537","FechaFin":"2025-09-28T15:56:27.7977267"},{"Numero":16,"Apellido":"Pacor","Nombre":"Gianna","Categoria":"Open","Duracion":"79:01","FechaInicio":"2025-09-28T14:38:35.7021747","FechaFin":"2025-09-28T15:57:36.3806748"},{"Numero":59,"Apellido":"Scherini","Nombre":"Sabrina","Categoria":"Master","Duracion":"79:24","FechaInicio":"2025-09-28T14:38:35.7021469","FechaFin":"2025-09-28T15:57:59.4286011"},{"Numero":11,"Apellido":"Delfina","Nombre":"Halsuet","Categoria":"Junior","Duracion":"82:27","FechaInicio":"2025-09-28T14:38:35.7021495","FechaFin":"2025-09-28T16:01:02.1968229"},{"Numero":43,"Apellido":"Tamburlini","Nombre":"Antonella","Categoria":"Open","Duracion":"84:39","FechaInicio":"2025-09-28T14:38:35.7021106","FechaFin":"2025-09-28T16:03:14.1967427"},{"Numero":54,"Apellido":"Wendler","Nombre":"María De Los Ángeles","Categoria":"Open","Duracion":"85:05","FechaInicio":"2025-09-28T14:38:35.7021670","FechaFin":"2025-09-28T16:03:40.6404660"},{"Numero":84,"Apellido":"Lentini","Nombre":"Luciana","Categoria":"Master","Duracion":"86:17","FechaInicio":"2025-09-28T14:38:35.7021760","FechaFin":"2025-09-28T16:04:52.2370326"},{"Numero":51,"Apellido":"Pressacco","Nombre":"Yamila","Categoria":"Open","Duracion":"86:40","FechaInicio":"2025-09-28T14:38:35.7021552","FechaFin":"2025-09-28T16:05:15.2509902"},{"Numero":85,"Apellido":"Teran","Nombre":"Natalia","Categoria":"Master","Duracion":"87:26","FechaInicio":"2025-09-28T14:38:35.7021789","FechaFin":"2025-09-28T16:06:01.4525147"},{"Numero":113,"Apellido":"Sauretti","Nombre":"Cardinali Laura Griselda","Categoria":"Master","Duracion":"92:08","FechaInicio":"2025-09-28T14:38:35.7021515","FechaFin":"2025-09-28T16:10:43.0725407"}]}
+	
+
+    // La lógica de carga ahora usa las variables directamente
+    const archivos = [
+		{ datos: kids, titulo: "Kids - Masculino/Femenino" },
+      { datos: participativaMasculino, titulo: "Participativa (1km a 3 km) - Masculino" },
+      { datos: participativaFemenino, titulo: "Participativa (1km a 3 km) - Femenino" },
+	  
+	  { datos: allroundmasculino, titulo: "All Round (3km a 6km) - masculino" }, 
+      { datos: allroundfemenino, titulo: "All Round (3km a 6km) - femenino" }, 
+	  
+	   { datos: funracemasculino, titulo: "Fun Race (5 km) - masculino" }, 
+      { datos: funracefemenino, titulo: "Fun Race (5 km) - femenino" },
+	  
+	   { datos: racetecnicomasculino, titulo: "Maratón (10 km a 12 km) - masculino" },
+      { datos: racetecnicofemenino, titulo: "Maratón (10 km a 12 km) - femenino" }, 
+	  
+    ];
+
+    function cargarResultados() {
+  const contenedor = document.getElementById("resultados-container");
+
+  for (let a of archivos) {
+    const data = a.datos; // Usa la variable con los datos
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    // Start a position counter for each card/table
+    let posicion = 1;
+
+    card.innerHTML = `
+      <h2>${a.titulo}</h2>
+      <p><strong>Carrera:</strong> ${data.Carrera} | <strong>Sexo:</strong> ${data.Sexo}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Número</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Tiempo [mm:ss]</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.Resultados.map(r => `
+            <tr>
+    <td>${posicion++}</td>
+    <td>${r.Numero}</td>
+    <td>${r.Apellido}</td>
+    <td>${r.Nombre}</td>
+    <td>${r.Categoria}</td>
+    <td>${r.Duracion || "-"}</td>
+  </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+
+    contenedor.appendChild(card);
+  }
+}
+
+cargarResultados();
+  </script>
+</body>
+</html>
+
