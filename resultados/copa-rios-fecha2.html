@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Copa Ríos del Litoral - Fecha 2</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9fb;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #0077b6;
+    }
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #0077b6;
+      color: white;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    tr:nth-child(even) { background: #f2faff; }
+    tr:hover { background: #d9f0ff; }
+    .volver {
+      display: inline-block;
+      margin: 20px auto;
+      text-align: center;
+      background: #0077b6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .volver:hover {
+      background: #023e8a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Resultados - Copa Ríos del Litoral (Fecha 1)</h1>
+    <a href="../index.html" class="volver">Volver al inicio</a>
+  </header>
+
+  <div class="container" id="resultados-container">
+    <!-- Aquí se cargarán las cards dinámicamente -->
+  </div>
+
+ <script>
+    const kids = {"Carrera":"Kids","Sexo":"-","Resultados":[{"Numero":41,"Apellido":"Petean","Nombre":"Martino","Categoria":"Kids","Duracion":"05:13","FechaInicio":"2025-12-06T10:58:47.0808566","FechaFin":"2025-12-06T11:04:00.2677768"},{"Numero":16,"Apellido":"Pierotti","Nombre":"Lupe","Categoria":"Kids","Duracion":"05:20","FechaInicio":"2025-12-06T10:58:47.0808549","FechaFin":"2025-12-06T11:04:07.7730545"},{"Numero":59,"Apellido":"Santa María","Nombre":"Isabella","Categoria":"Kids","Duracion":"05:37","FechaInicio":"2025-12-06T10:58:47.0808558","FechaFin":"2025-12-06T11:04:24.2672754"},{"Numero":64,"Apellido":"Esquivel","Nombre":"Jose Manuel","Categoria":"Kids","Duracion":"05:48","FechaInicio":"2025-12-06T10:58:47.0808504","FechaFin":"2025-12-06T11:04:35.4288625"},{"Numero":47,"Apellido":"Vicente","Nombre":"Mateo","Categoria":"Kids","Duracion":"06:14","FechaInicio":"2025-12-06T10:58:47.0808531","FechaFin":"2025-12-06T11:05:01.5986879"},{"Numero":96,"Apellido":"Enrique","Nombre":"Fabricio martin","Categoria":"Kids","Duracion":"06:17","FechaInicio":"2025-12-06T10:58:47.0808517","FechaFin":"2025-12-06T11:05:04.8547720"},{"Numero":51,"Apellido":"Zoni","Nombre":"Martiniano ","Categoria":"Kids","Duracion":"07:00","FechaInicio":"2025-12-06T10:58:47.0805173","FechaFin":"2025-12-06T11:05:47.7747976"}]}
+	const participativaMasculino = {"Carrera":"Participativa","Sexo":"Masculino","Resultados":[{"Numero":41,"Apellido":"Petean","Nombre":"Martino","Categoria":"Junior","Duracion":"11:07","FechaInicio":"2025-12-06T11:32:51.2689202","FechaFin":"2025-12-06T11:43:58.5433680"},{"Numero":75,"Apellido":"Abalos","Nombre":"Juan Pablo ","Categoria":"Open","Duracion":"11:25","FechaInicio":"2025-12-06T11:32:51.2689213","FechaFin":"2025-12-06T11:44:16.6284071"},{"Numero":31,"Apellido":"Illanes","Nombre":"Guillermo","Categoria":"Senior","Duracion":"11:41","FechaInicio":"2025-12-06T11:32:51.2689198","FechaFin":"2025-12-06T11:44:32.4636285"},{"Numero":67,"Apellido":"Muñoz","Nombre":"Benjamin ","Categoria":"Junior","Duracion":"11:46","FechaInicio":"2025-12-06T11:32:51.2689186","FechaFin":"2025-12-06T11:44:37.3557101"},{"Numero":28,"Apellido":"Polimena","Nombre":"Gianluca","Categoria":"Open","Duracion":"12:15","FechaInicio":"2025-12-06T11:32:51.2689205","FechaFin":"2025-12-06T11:45:06.1158124"},{"Numero":89,"Apellido":"Cabral ","Nombre":"Gabriel","Categoria":"Master","Duracion":"12:20","FechaInicio":"2025-12-06T11:32:51.2689194","FechaFin":"2025-12-06T11:45:11.1949778"},{"Numero":64,"Apellido":"Esquivel","Nombre":"Jose Manuel","Categoria":"Junior","Duracion":"12:37","FechaInicio":"2025-12-06T11:32:51.2689191","FechaFin":"2025-12-06T11:45:28.1006508"},{"Numero":99,"Apellido":"Gamba","Nombre":"Mario","Categoria":"Senior","Duracion":"12:51","FechaInicio":"2025-12-06T11:32:51.2689208","FechaFin":"2025-12-06T11:45:42.2953539"},{"Numero":8,"Apellido":"Cantero","Nombre":"Cristian","Categoria":"Master","Duracion":"13:32","FechaInicio":"2025-12-06T11:32:51.2689086","FechaFin":"2025-12-06T11:46:23.8782431"}]}
+    const participativaFemenino = {"Carrera":"Participativa","Sexo":"Femenino","Resultados":[{"Numero":16,"Apellido":"Pierotti","Nombre":"Lupe","Categoria":"Kids","Duracion":"12:08","FechaInicio":"2025-12-06T11:14:04.4336026","FechaFin":"2025-12-06T11:26:12.9198976"},{"Numero":59,"Apellido":"Santa María","Nombre":"Isabella","Categoria":"Kids","Duracion":"12:19","FechaInicio":"2025-12-06T11:14:04.4336039","FechaFin":"2025-12-06T11:26:23.2661815"},{"Numero":102,"Apellido":"Aredondo","Nombre":"Adriana","Categoria":"Senior","Duracion":"12:30","FechaInicio":"2025-12-06T11:14:04.4336036","FechaFin":"2025-12-06T11:26:34.2448455"},{"Numero":19,"Apellido":"Garzón","Nombre":"Mariela silvina","Categoria":"Senior","Duracion":"12:33","FechaInicio":"2025-12-06T11:14:04.4335892","FechaFin":"2025-12-06T11:26:37.0050529"},{"Numero":53,"Apellido":"Cresto","Nombre":"Mayda Rosana","Categoria":"Senior","Duracion":"13:51","FechaInicio":"2025-12-06T11:14:04.4336030","FechaFin":"2025-12-06T11:27:55.2088784"},{"Numero":62,"Apellido":"Testini","Nombre":"Gabriela Noemi","Categoria":"Senior","Duracion":"14:21","FechaInicio":"2025-12-06T11:14:04.4336033","FechaFin":"2025-12-06T11:28:25.6770393"}]}
+	
+	const allroundmasculino = {"Carrera":"All round","Sexo":"Masculino","Resultados":[{"Numero":11,"Apellido":"Herrera","Nombre":"Diego","Categoria":"Open","Duracion":"20:12","FechaInicio":"2025-12-06T13:39:15.5101453","FechaFin":"2025-12-06T13:59:27.2960704"},{"Numero":2,"Apellido":"Role","Nombre":"Marcos","Categoria":"Open","Duracion":"20:48","FechaInicio":"2025-12-06T13:39:15.5101448","FechaFin":"2025-12-06T14:00:03.6287636"},{"Numero":58,"Apellido":"Martinez","Nombre":"guillermo","Categoria":"Senior","Duracion":"21:32","FechaInicio":"2025-12-06T13:39:15.5101456","FechaFin":"2025-12-06T14:00:47.8692866"},{"Numero":97,"Apellido":"Ramos","Nombre":"Valentin","Categoria":"Open","Duracion":"22:26","FechaInicio":"2025-12-06T13:39:15.5101329","FechaFin":"2025-12-06T14:01:41.3848663"},{"Numero":68,"Apellido":"Gomez","Nombre":"Daniel","Categoria":"Open","Duracion":"23:48","FechaInicio":"2025-12-06T13:39:15.5101444","FechaFin":"2025-12-06T14:03:03.9184962"},{"Numero":60,"Apellido":"Valenzuela ","Nombre":"Lautaro ","Categoria":"Open","Duracion":"23:57","FechaInicio":"2025-12-06T13:39:15.5101440","FechaFin":"2025-12-06T14:03:12.4537147"}]}
+	const allroundfemenino = {"Carrera":"All round","Sexo":"Femenino","Resultados":[{"Numero":35,"Apellido":"Martínez","Nombre":"Rosana María del valle","Categoria":"Open","Duracion":"22:23","FechaInicio":"2025-12-06T12:55:23.5737860","FechaFin":"2025-12-06T13:17:46.5702833"},{"Numero":95,"Apellido":"Chemes","Nombre":"Paula","Categoria":"Master","Duracion":"24:02","FechaInicio":"2025-12-06T12:55:23.5737864","FechaFin":"2025-12-06T13:19:25.5293151"},{"Numero":87,"Apellido":"Srebernich","Nombre":"Patricia","Categoria":"Senior","Duracion":"24:54","FechaInicio":"2025-12-06T12:55:23.5737763","FechaFin":"2025-12-06T13:20:17.9154907"}]}
+	
+	const funracemasculino = {"Carrera":"Fun race","Sexo":"Masculino","Resultados":[{"Numero":43,"Apellido":"Caraballo","Nombre":"Hernan","Categoria":"Master","Duracion":"29:03","FechaInicio":"2025-12-06T13:38:06.7263726","FechaFin":"2025-12-06T14:07:09.5604412"},{"Numero":57,"Apellido":"Ramos","Nombre":"Fernando","Categoria":"Open","Duracion":"30:44","FechaInicio":"2025-12-06T13:38:06.7263719","FechaFin":"2025-12-06T14:08:50.6876833"},{"Numero":79,"Apellido":"Auriti","Nombre":"Amadeo","Categoria":"Junior","Duracion":"32:18","FechaInicio":"2025-12-06T13:38:06.7263564","FechaFin":"2025-12-06T14:10:24.5551145"},{"Numero":80,"Apellido":"Auriti","Nombre":"Esteban","Categoria":"Master","Duracion":"33:18","FechaInicio":"2025-12-06T13:38:06.7263714","FechaFin":"2025-12-06T14:11:24.6600968"},{"Numero":31,"Apellido":"Illanes","Nombre":"Guillermo","Categoria":"Senior","Duracion":"36:48","FechaInicio":"2025-12-06T13:38:06.7263722","FechaFin":"2025-12-06T14:14:54.5969713"},{"Numero":99,"Apellido":"Gamba","Nombre":"Mario","Categoria":"Senior","Duracion":"37:17","FechaInicio":"2025-12-06T13:38:06.7263729","FechaFin":"2025-12-06T14:15:23.3468706"}]}
+	const funracefemenino = {"Carrera":"Fun race","Sexo":"Femenino","Resultados":[{"Numero":4,"Apellido":"Carabajal","Nombre":"Nora","Categoria":"Master","Duracion":"28:28","FechaInicio":"2025-12-06T12:54:18.5817040","FechaFin":"2025-12-06T13:22:46.3052533"},{"Numero":50,"Apellido":"Tamburlini","Nombre":"Antonella","Categoria":"Open","Duracion":"29:47","FechaInicio":"2025-12-06T12:54:18.5817052","FechaFin":"2025-12-06T13:24:05.4907060"},{"Numero":94,"Apellido":"Valentino","Nombre":"Melisa","Categoria":"Open","Duracion":"32:57","FechaInicio":"2025-12-06T12:54:18.5817045","FechaFin":"2025-12-06T13:27:15.8327937"},{"Numero":82,"Apellido":"Guilizasti","Nombre":"Uma","Categoria":"Junior","Duracion":"37:06","FechaInicio":"2025-12-06T12:54:18.5816868","FechaFin":"2025-12-06T13:31:24.0160012"},{"Numero":88,"Apellido":"Zalazar","Nombre":"Kimey alelí","Categoria":"Junior","Duracion":"38:08","FechaInicio":"2025-12-06T12:54:18.5817033","FechaFin":"2025-12-06T13:32:26.3560095"}]}
+	
+	const racetecnicomasculino = {"Carrera":"Race técnico","Sexo":"Masculino","Resultados":[{"Numero":100,"Apellido":"Basaldella","Nombre":"Santino","Categoria":"Open","Duracion":"34:32","FechaInicio":"2025-12-06T14:23:13.3493912","FechaFin":"2025-12-06T14:57:45.0557546"},{"Numero":14,"Apellido":"Zalazar","Nombre":"Tobias","Categoria":"Open","Duracion":"34:42","FechaInicio":"2025-12-06T14:23:13.3493902","FechaFin":"2025-12-06T14:57:55.2900346"},{"Numero":70,"Apellido":"Villagra","Nombre":"Cristian","Categoria":"Master","Duracion":"35:03","FechaInicio":"2025-12-06T14:23:13.3493905","FechaFin":"2025-12-06T14:58:16.9010275"},{"Numero":101,"Apellido":"Basaldella","Nombre":"Guillermo","Categoria":"Senior","Duracion":"35:26","FechaInicio":"2025-12-06T14:23:13.3493914","FechaFin":"2025-12-06T14:58:39.4174442"},{"Numero":21,"Apellido":"Cantero","Nombre":"Hugo Gabriel","Categoria":"Master","Duracion":"36:04","FechaInicio":"2025-12-06T14:23:13.3493898","FechaFin":"2025-12-06T14:59:17.2607736"},{"Numero":6,"Apellido":"Cornejo","Nombre":"Sergio","Categoria":"Senior","Duracion":"39:03","FechaInicio":"2025-12-06T14:23:13.3493775","FechaFin":"2025-12-06T15:02:16.3132760"},{"Numero":17,"Apellido":"Cittadino","Nombre":"Sebastián","Categoria":"Master","Duracion":"45:29","FechaInicio":"2025-12-06T14:23:13.3493909","FechaFin":"2025-12-06T15:08:42.2504345"}]}
+	const racetecnicofemenino = {"Carrera":"Race técnico","Sexo":"Femenino","Resultados":[{"Numero":91,"Apellido":"Clembosky","Nombre":"Lucia","Categoria":"Open","Duracion":"36:37","FechaInicio":"2025-12-06T14:24:13.3261773","FechaFin":"2025-12-06T15:00:50.5903663"},{"Numero":93,"Apellido":"Grecco","Nombre":"Sandra","Categoria":"Master","Duracion":"36:49","FechaInicio":"2025-12-06T14:24:13.3261768","FechaFin":"2025-12-06T15:01:02.4936368"},{"Numero":55,"Apellido":"Palau","Nombre":"Laura","Categoria":"Master","Duracion":"37:00","FechaInicio":"2025-12-06T14:24:13.3261762","FechaFin":"2025-12-06T15:01:13.8448580"},{"Numero":38,"Apellido":"Pressacco","Nombre":"Yamila","Categoria":"Open","Duracion":"38:35","FechaInicio":"2025-12-06T14:24:13.3261614","FechaFin":"2025-12-06T15:02:48.3523743"},{"Numero":44,"Apellido":"Rasch","Nombre":"Laura","Categoria":"Master","Duracion":"39:37","FechaInicio":"2025-12-06T14:24:13.3261750","FechaFin":"2025-12-06T15:03:50.3008510"},{"Numero":56,"Apellido":"Scherini","Nombre":"Sabrina","Categoria":"Master","Duracion":"40:00","FechaInicio":"2025-12-06T14:24:13.3261755","FechaFin":"2025-12-06T15:04:13.2984421"},{"Numero":52,"Apellido":"Martínez","Nombre":"Florencia","Categoria":"Open","Duracion":"40:08","FechaInicio":"2025-12-06T14:24:13.3261744","FechaFin":"2025-12-06T15:04:21.1223007"},{"Numero":34,"Apellido":"Wendler","Nombre":"María De Los Ángeles","Categoria":"Open","Duracion":"40:58","FechaInicio":"2025-12-06T14:24:13.3261779","FechaFin":"2025-12-06T15:05:11.9155484"},{"Numero":37,"Apellido":"Lentini","Nombre":"Luciana","Categoria":"Master","Duracion":"42:04","FechaInicio":"2025-12-06T14:24:13.3261786","FechaFin":"2025-12-06T15:06:17.8634692"}]}
+	
+
+    // La lógica de carga ahora usa las variables directamente
+    const archivos = [
+		{ datos: kids, titulo: "Kids - Masculino/Femenino" },
+      { datos: participativaMasculino, titulo: "Participativa (1.5 km) - Masculino" },
+      { datos: participativaFemenino, titulo: "Participativa (1.5 km) - Femenino" },
+	  
+	  { datos: allroundmasculino, titulo: "All round (3 km) - masculino" }, 
+      { datos: allroundfemenino, titulo: "All round (3 km) - femenino" }, 
+	  
+	   { datos: funracemasculino, titulo: "Fun race (4.5 km) - masculino" }, 
+      { datos: funracefemenino, titulo: "Fun race (4.5 km) - femenino" },
+	  
+	   { datos: racetecnicomasculino, titulo: "Race técnico (6 km) - masculino" },
+      { datos: racetecnicofemenino, titulo: "Race técnico (6 km) - femenino" }, 
+	  
+    ];
+
+    function cargarResultados() {
+  const contenedor = document.getElementById("resultados-container");
+
+  for (let a of archivos) {
+    const data = a.datos; // Usa la variable con los datos
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    // Start a position counter for each card/table
+    let posicion = 1;
+
+    card.innerHTML = `
+      <h2>${a.titulo}</h2>
+      <p><strong>Carrera:</strong> ${data.Carrera} | <strong>Sexo:</strong> ${data.Sexo}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Número</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Tiempo [mm:ss]</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.Resultados.map(r => `
+            <tr>
+              <td>${posicion++}</td>
+              <td>${r.Numero}</td>
+              <td>${r.Apellido}</td>
+              <td>${r.Nombre}</td>
+              <td>${r.Categoria}</td>
+              <td>${r.Duracion}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+
+    contenedor.appendChild(card);
+  }
+}
+
+cargarResultados();
+  </script>
+</body>
+</html>
+
